@@ -4,7 +4,10 @@ fn print_result(num: i32) {
 }
 ////////// DO NOT CHANGE ABOVE HERE /////////
 
-// TODO: create `math!()` macro.
+macro_rules! math {
+    ($x:literal plus $y:literal) => { $x + $y };
+    (square $x:literal) => { $x * $x };
+}
 
 ////////// DO NOT CHANGE BELOW HERE /////////
 
