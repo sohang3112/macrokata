@@ -17,9 +17,9 @@ macro_rules! pair {
 }
 
 macro_rules! hashmap {
-    ($($pair:tt),+) => {
+    ($($fst:tt => $snd:tt,)+) => {
         HashMap::from([
-            $( pair!($pair) ),+
+            $( pair!(String::from($fst) => $snd) ),+
         ])
     };
 }
