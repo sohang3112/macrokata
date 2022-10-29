@@ -1,17 +1,28 @@
 ////////// DO NOT CHANGE BELOW HERE /////////
 use std::collections::HashMap;
+use std::fmt::Debug;
 
-fn print_pair<K, V>(pair: (K, V)) {
+fn print_pair<K: Debug, V: Debug>(pair: (K, V)) {
     println!("{pair:#?}");
 }
-fn print_hashmap<K, V>(hashmap: &HashMap<K, V>) {
+fn print_hashmap<K: Debug, V: Debug>(hashmap: &HashMap<K, V>) {
     println!("{hashmap:#?}");
 }
 ////////// DO NOT CHANGE ABOVE HERE /////////
 
-// TODO: Create a `pair!()` macro.
+macro_rules! pair {
+    ($fst:expr => $snd:expr) => {
+        ($fst, $snd)
+    };
+}
 
-// TODO: Create a `hashmap!()` macro that uses the `pair!()` macro.
+macro_rules! hashmap {
+    ($($pair:tt),+) => {
+        HashMap::from([
+            $( pair!($pair) ),+
+        ])
+    };
+}
 
 ////////// DO NOT CHANGE BELOW HERE /////////
 
