@@ -1,4 +1,11 @@
-// TODO: Create the `curry!()` macro.
+macro_rules! curry {
+    (($x:ident : $type:ty) => _, $body:block) => {
+        |$x: $type| $body
+    };
+    (($x:ident : $xtype:ty) => $($param:tt)+) => {
+        |$x: $xtype| curry!($($param)+)
+    };
+}
 
 ////////// DO NOT CHANGE BELOW HERE /////////
 
