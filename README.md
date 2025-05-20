@@ -1,5 +1,7 @@
 # MacroKata
 
+**Archiving** as all exercises have been solved.
+
 Welcome to MacroKata, a set of exercises which you can use to learn how to write
 macros in rust. When completing each task, there are three goals:
 
